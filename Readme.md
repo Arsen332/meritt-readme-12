@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Арсен](https://up.htmlacademy.ru/php/12/user/2170679).
-* Наставник: `Неизвестно`.
+* Наставник: [Никита](https://htmlacademy.ru/profile/id1186205).
 
 ---
 
