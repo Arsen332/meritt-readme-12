@@ -2,7 +2,7 @@
 require_once 'helpers.php';
 $is_auth = rand(0, 1);
 
-$card_post = [
+$card_posts = [
     [
         'title' => 'Цитата',
         'type' => 'post-quote',
@@ -243,28 +243,28 @@ $user_name = 'Arsen';
         </div>
         <div class="popular__posts">
                 
-            <?php  foreach($card_post as $key => $val): ?>
-            <article class="popular__post post <?=$val['type'];?>">
+            <?php  foreach($card_posts as $post): ?>
+            <article class="popular__post post <?= $post['type'] ?>">
                 <header class="post__header">
-                    <h2><?=$val['title'];?></h2>
+                    <h2><?= $post['title'] ?></h2>
                 </header>
                 <div class="post__main">
                     <!--здесь содержимое карточки-->
-                    <?php if($val['type'] === 'post-quote'): ?>
+                    <?php if($post['type'] === 'post-quote'): ?>
 
                         <blockquote>
                     <p>
-                        <?=$val['content'];?>
+                        <?= $post['content'] ?>
                     </p>
                     <cite>Неизвестный Автор</cite>
                 </blockquote>
-                    <?php elseif ($val['type'] === 'post-text'): ?>
-                            <p><?=$val['content'];?></p>
-                    <?php elseif ($val['type'] === 'post-photo'): ?>
+                    <?php elseif ($post['type'] === 'post-text'): ?>
+                            <p><?= $post['content'] ?></p>
+                    <?php elseif ($post['type'] === 'post-photo'): ?>
                         <div class="post-photo__image-wrapper">
-                            <img src="img/<?=$val['content'];?>" alt="Фото от пользователя" width="360" height="240">
+                            <img src="img/<?= $post['content'] ?>" alt="Фото от пользователя" width="360" height="240">
                         </div>
-                    <?php elseif ($val['type'] === 'post-link'): ?>
+                    <?php elseif ($post['type'] === 'post-link'): ?>
                         <div class="post-link__wrapper">
                     <a class="post-link__external" href="http://" title="Перейти по ссылке">
                         <div class="post-link__info-wrapper">
@@ -272,10 +272,10 @@ $user_name = 'Arsen';
                                 <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                             </div>
                             <div class="post-link__info">
-                                <h3><?=$val['title'];?></h3>
+                                <h3><?=$post['title'] ?></h3>
                             </div>
                         </div>
-                        <span><?=$val['content'];?></span>
+                        <span><?=$post['content'] ?></span>
                     </a>
                 </div>
                         <?php endif; ?>
