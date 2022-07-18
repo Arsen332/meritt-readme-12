@@ -284,10 +284,10 @@ $user_name = 'Arsen';
                     <div class="post__author">
                         <a class="post__author-link" href="#" title="Автор">
                             <div class="post__avatar-wrapper">
-                                <img class="post__author-avatar" src="img/<?=$val['avatar'];?>" alt="Аватар пользователя">
+                                <img class="post__author-avatar" src="img/<?=$post['avatar'];?>" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
-                                <b class="post__author-name"><?=$val['name'];?></b>
+                                <b class="post__author-name"><?=$post['name'];?></b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
                         </a>
