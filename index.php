@@ -2,7 +2,7 @@
 require_once 'helpers.php';
 $is_auth = rand(0, 1);
 
-$user_name = ''; // укажите здесь ваше имя
+$user_name = 'Arsen';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -41,8 +41,8 @@ $user_name = ''; // укажите здесь ваше имя
             </div>
         </form>
         <div class="header__nav-wrapper">
-            <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
-            <nav class="header__nav">
+            <?php if($is_auth === 1): ?>
+                <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
                         <a class="header__page-link header__page-link--active" title="Популярный контент">
@@ -60,7 +60,6 @@ $user_name = ''; // укажите здесь ваше имя
                         </a>
                     </li>
                 </ul>
-                <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
                 <ul class="header__user-nav">
                     <li class="header__profile">
                         <a class="header__profile-link" href="#">
@@ -111,6 +110,8 @@ $user_name = ''; // укажите здесь ваше имя
                     </li>
                 </ul>
             </nav>
+            <?php endif; ?>
+            
         </div>
     </div>
 </header>
