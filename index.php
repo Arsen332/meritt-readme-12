@@ -2,6 +2,28 @@
 require_once 'helpers.php';
 $is_auth = rand(0, 1);
 
+function pruning($word_content, $limit = 300){
+    $words = explode(" ", $word_content);
+    $length = 0;
+    $counter = 0;
+    $word_total = array();
+    foreach($words as $word){
+        $length += mb_strlen($word);
+        array_push($word_total, $word);
+        $counter++;
+        if($length > $limit){
+            $word_content = implode(' ',$word_total);
+            $word_content .= '...<br><a class="post-text__more-link" href="#">Читать далее</a>';
+            break;
+        }
+        if($counter === count($words)){
+            $word_content = implode(' ',$word_total);
+            break;
+        }
+    }
+    return $word_content;
+}
+
 $card_posts = [
     [
         'title' => 'Цитата',
@@ -259,7 +281,7 @@ $user_name = 'Arsen';
                     <cite>Неизвестный Автор</cite>
                 </blockquote>
                     <?php elseif ($post['type'] === 'post-text'): ?>
-                            <p><?= $post['content'] ?></p>
+                            <p><?= pruning($post['content']) ?></p>
                     <?php elseif ($post['type'] === 'post-photo'): ?>
                         <div class="post-photo__image-wrapper">
                             <img src="img/<?= $post['content'] ?>" alt="Фото от пользователя" width="360" height="240">
