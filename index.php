@@ -2,7 +2,7 @@
 require_once 'helpers.php';
 $is_auth = rand(0, 1);
 
-function pruning($word_content, $amount = 300){
+function pruning($word_content, $limit = 300){
     $words = explode(" ", $word_content);
     $length = 0;
     $counter = 0;
@@ -11,7 +11,7 @@ function pruning($word_content, $amount = 300){
         $length += mb_strlen($word);
         array_push($word_total, $word);
         $counter++;
-        if($length >= $amount){
+        if($length > $limit){
             $word_content = implode(' ',$word_total);
             $word_content .= '...<br><a class="post-text__more-link" href="#">Читать далее</a>';
             break;
