@@ -2,27 +2,26 @@
 require_once 'helpers.php';
 $is_auth = rand(0, 1);
 
-function pruning($word_content, $amout = 300){
+function pruning($word_content, $amount = 300){
     $words = explode(" ", $word_content);
-    $long = 0;
+    $length = 0;
     $counter = 0;
     $word_total = array();
     foreach($words as $word){
-        $long += strlen($word);
+        $length += mb_strlen($word);
         array_push($word_total, $word);
         $counter++;
-        if($long >= $amout){
+        if($length >= $amount){
             $word_content = implode(' ',$word_total);
             $word_content .= '...<br><a class="post-text__more-link" href="#">Читать далее</a>';
-            echo $word_content;
             break;
         }
         if($counter === count($words)){
             $word_content = implode(' ',$word_total);
-            echo $word_content;
             break;
         }
     }
+    return $word_content;
 }
 
 $card_posts = [
