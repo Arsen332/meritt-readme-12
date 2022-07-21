@@ -1,5 +1,6 @@
 <?php
 require_once 'helpers.php';
+$is_auth = rand(0, 1);
 
 function pruning($word_content, $limit = 300){
     $words = explode(" ", $word_content);
@@ -64,9 +65,9 @@ $card_posts = [
 
 $user_name = 'Arsen';
     
-        $page_content = include_template('../templates/main.php', ['card_posts' => $card_posts ]);
+        $page_content = include_template('../templates/main.php', ['card_posts' => $card_posts]);
 
-        $layout_content = include_template('../templates/layout.php', ['content' => $page_content, 'title' => 'Главная']);
+        $layout_content = include_template('../templates/layout.php', ['content' => $page_content, 'title' => 'Главная','is_auth' => $is_auth]);
 
         print($layout_content);
 
